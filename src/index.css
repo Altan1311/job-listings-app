@@ -132,6 +132,7 @@ body{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 0.5rem;
   margin: 1rem 0 0 0;
   border-top: 1px solid var(--dark-grayish-cyan);
   padding: 1rem 0 0 0;
@@ -233,7 +234,7 @@ body{
   cursor: pointer;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 800px) {
   .header{
     background: var(--desaturated-dark-cyan) url("../public/images/bg-header-desktop.svg") top center no-repeat;;
     padding-top: 11.58%;
@@ -241,7 +242,7 @@ body{
 
   .job{
     display: grid;
-    grid-template-columns: 10% 60% 30%;
+    grid-template-columns: 10% 40% auto;
     align-items: center;
     padding: 1.5rem 2.5rem 1.5rem 2.5rem;
   }

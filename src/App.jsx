@@ -27,6 +27,19 @@ function App() {
     window.scrollTo(0, 0)
   }
 
+  const createTagButton = (text, idx) => {
+    return (
+      <button 
+        className="job__tags__item" 
+        key={`tag${idx}`} 
+        type="button"
+        onClick={() => addSearchTag(text)}
+      >
+        {text}
+      </button>
+    )
+  }
+
   const createListing = (job, idx) => {
     return (
       <div className={job.featured ? "job job--featured" : "job"} key={idx}>
@@ -63,16 +76,10 @@ function App() {
           </div>
         </div>
         <div className="job__tags">
-        {job.languages.map((lang, idx) => (
-            <button 
-              className="job__tags__item" 
-              key={`tag${idx}`} 
-              type="button"
-              onClick={() => addSearchTag(lang)}
-            >
-              {lang}
-            </button>
-          ))}
+          {
+            [job.role, job.level, ...job.tools, ...job.languages].map((lang, idx) => (
+              <>{createTagButton(lang, idx)}</>
+            ))}
         </div>
       </div>
     )
@@ -81,17 +88,19 @@ function App() {
   const filterData = () => {
     const filteredData = []
 
-    data.forEach((entry) => {
+    data.forEach((job) => {
       let passed = true
 
       searchTags.forEach((tag) => {
-        if(!entry.languages.find((lang) => lang === tag)){
+        const searchArray = [job.role, job.level, ...job.tools, ...job.languages]
+
+        if(!searchArray.find((item) => item === tag)){
           passed = false
         }
       })
       
       if(passed){
-        filteredData.push(entry)
+        filteredData.push(job)
       }
     })
 
