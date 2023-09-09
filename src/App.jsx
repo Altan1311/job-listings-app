@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import data from './data.json'
 
@@ -6,10 +6,6 @@ import data from './data.json'
 
 function App() {
   const [searchTags, setSearchTags] = useState([])
-
-  useEffect(() => {
-    console.log(JSON.stringify(searchTags))
-  }, [searchTags])
 
   const addSearchTag = (lang) => {
     const find = searchTags.find(tag => lang === tag)
