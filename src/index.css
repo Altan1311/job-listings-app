@@ -240,6 +240,10 @@ body{
     padding-top: 11.58%;
   }
 
+  .main{
+    padding: 3.4rem 10%;
+  }
+
   .job{
     display: grid;
     grid-template-columns: 10% 40% auto;
