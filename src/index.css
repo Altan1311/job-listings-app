@@ -269,6 +269,8 @@ body{
   }
 
   .filter-bar{
+    margin-left: 10%;
+    margin-right: 10%;
     grid-template-columns: 93% 7%;
   }
 }
